@@ -1,0 +1,10 @@
+[package]
+name = "monkey_library"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# std and sui are implicitly included
+
+[addresses]
+monkey_library = "0x0"

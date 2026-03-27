@@ -1,0 +1,197 @@
+/* Design system – tokens and component classes for monkey-library */
+
+/* Button (primary accent) */
+.ds-button {
+  font-family: var(--mono);
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ds-button:hover {
+  border-color: var(--accent-border);
+}
+
+a.ds-button {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.ds-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Card – surface container with optional border */
+.ds-card {
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+  .ds-card {
+    padding: 20px;
+  }
+}
+
+/* Section – layout block */
+.ds-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ds-section--centered {
+  place-items: center;
+  place-content: center;
+  flex-grow: 1;
+}
+
+/* Icon link (for doc/social lists) */
+.ds-icon-link {
+  color: var(--text-h);
+  font-size: 16px;
+  border-radius: 6px;
+  background: var(--social-bg);
+  display: inline-flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+}
+
+.ds-icon-link:hover {
+  box-shadow: var(--shadow);
+}
+
+.ds-icon-link__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Link list – horizontal wrap of icon links */
+.ds-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 1024px) {
+  .ds-link-list {
+    justify-content: center;
+  }
+
+  .ds-link-list li {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .ds-link-list .ds-icon-link {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+/* Divider / ticks decoration */
+.ds-ticks {
+  position: relative;
+  width: 100%;
+}
+
+.ds-ticks::before,
+.ds-ticks::after {
+  content: '';
+  position: absolute;
+  top: -4.5px;
+  border: 5px solid transparent;
+}
+
+.ds-ticks::before {
+  left: 0;
+  border-left-color: var(--border);
+}
+
+.ds-ticks::after {
+  right: 0;
+  border-right-color: var(--border);
+}
+
+/* Two-column block (e.g. docs + social) */
+.ds-two-col {
+  display: flex;
+  border-top: 1px solid var(--border);
+  text-align: left;
+}
+
+.ds-two-col > * {
+  flex: 1 1 0;
+  padding: 32px;
+}
+
+@media (max-width: 1024px) {
+  .ds-two-col {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ds-two-col > * {
+    padding: 24px 20px;
+  }
+}
+
+.ds-two-col__divider {
+  border-right: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+  .ds-two-col__divider {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+.ds-block-icon {
+  margin-bottom: 16px;
+  width: 22px;
+  height: 22px;
+}
+
+.ds-block-title {
+  margin: 0 0 8px;
+}
+
+.ds-block-desc {
+  margin: 0;
+}
+
+.ds-block-links {
+  margin-top: 32px;
+}
+
+@media (max-width: 1024px) {
+  .ds-block-links {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .ds-icon-link__icon svg {
+    filter: invert(1) brightness(2);
+  }
+}
