@@ -18,11 +18,7 @@ export function IconLink({
   ...props
 }: IconLinkProps) {
   return (
-    <a
-      href={href}
-      className={`ds-icon-link ${className}`.trim()}
-      {...props}
-    >
+    <a href={href} className={`ds-icon-link ${className}`.trim()} {...props}>
       <span className="ds-icon-link__icon" aria-hidden>
         {icon}
       </span>

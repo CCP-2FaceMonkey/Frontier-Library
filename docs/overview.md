@@ -33,6 +33,7 @@ The app uses the **Eve Frontier** design system and **[shadcn/ui](https://ui.sha
 
 - [Overview](overview.md) — this file
 - [Product one-pager](product-one-pager.md) — proposal, goals, Discord positioning (draft)
+- [Tooling](tooling.md) — TanStack, shadcn, Mysten, GraphQL
 - [Sui and contracts](sui-and-contracts.md) — Sui CLI setup, contract layout, build/test/publish
 - [Walrus blob storage](walrus-blob-storage.md) — storing library content on Walrus (Sui’s verifiable blob storage)
 - Add more docs here as the project grows (e.g. setup, architecture, API, deployment).

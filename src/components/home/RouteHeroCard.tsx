@@ -19,7 +19,9 @@ export function RouteHeroCard({ item, to }: RouteHeroCardProps) {
   return (
     <Link to={to} className="route-hero-card" style={style}>
       <div className="route-hero-card__overlay">
-        {item.kicker ? <p className="route-hero-card__kicker">{item.kicker}</p> : null}
+        {item.kicker ? (
+          <p className="route-hero-card__kicker">{item.kicker}</p>
+        ) : null}
         <h3 className="route-hero-card__title">{item.title}</h3>
         <p className="route-hero-card__desc">{item.description}</p>
         <span className="route-hero-card__cta">{item.ctaLabel}</span>

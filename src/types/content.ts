@@ -1,5 +1,10 @@
 /** Sections that use list + detail slug routes */
-export type SlugContentSection = 'news' | 'diaries' | 'locations' | 'sponsors' | 'history';
+export type SlugContentSection =
+  | 'news'
+  | 'diaries'
+  | 'locations'
+  | 'sponsors'
+  | 'history';
 
 export interface SquareCardItem {
   slug: string;

@@ -2,7 +2,7 @@
 
 A **dapp** (decentralized application) on the **Sui blockchain**, connected to **Eve Frontier**. Monkey Library is an in-world **library** where players can **buy and read archives, diaries, and documents** — including **propaganda** and **history of the war** and other lore.
 
-For more context, see [docs/overview.md](docs/overview.md).
+For more context, see [docs/overview.md](docs/overview.md). **Frontend tooling** (TanStack Query / Table / Form / Virtual, shadcn, Mysten dapp-kit, Sui GraphQL): [docs/tooling.md](docs/tooling.md).
 
 ---
 
@@ -28,76 +28,12 @@ The UI uses the **Eve Frontier** design system together with **[shadcn/ui](https
 
 ## Tech stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The app is a **Vite** + **React 19** SPA with **TypeScript**, **Tailwind CSS 4**, and the [React Compiler](https://react.dev/learn/react-compiler) (via Babel in `vite.config.ts`).
 
-Currently, two official plugins are available:
+## Lint, format, and tests
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **`npm run lint`** — [Biome](https://biomejs.dev/) check (lint + format consistency)
+- **`npm run lint:fix`** — apply safe Biome fixes (includes import organization)
+- **`npm run format`** — format with Biome
+- **`npm run test`** — [Vitest](https://vitest.dev/) unit tests (`src/**/*.test.ts`, `src/**/*.spec.tsx`)
+- **`npm run check`** — lint and tests together (use before committing or when finishing agent changes)

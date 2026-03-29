@@ -1,6 +1,9 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { getContentBySlug } from '../content/homeMock';
-import { TEST_LIBRARY_ITEM, TEST_LIBRARY_ITEM_SLUG } from '../content/libraryFixtures';
+import {
+  TEST_LIBRARY_ITEM,
+  TEST_LIBRARY_ITEM_SLUG,
+} from '../content/libraryFixtures';
 import type { SlugContentSection } from '../types/content';
 
 const listPath: Record<SlugContentSection, string> = {
@@ -19,7 +22,11 @@ const titles: Record<SlugContentSection, string> = {
   history: 'History',
 };
 
-export function PlaceholderDetailPage({ section }: { section: SlugContentSection }) {
+export function PlaceholderDetailPage({
+  section,
+}: {
+  section: SlugContentSection;
+}) {
   const { slug } = useParams<{ slug: string }>();
 
   if (!slug) {
@@ -34,13 +41,20 @@ export function PlaceholderDetailPage({ section }: { section: SlugContentSection
           <span aria-hidden> · </span>
           <Link to="/diaries">{titles.diaries}</Link>
         </nav>
-        <h1 className="app-placeholder-page__title">{TEST_LIBRARY_ITEM.title}</h1>
+        <h1 className="app-placeholder-page__title">
+          {TEST_LIBRARY_ITEM.title}
+        </h1>
         <p className="app-placeholder-page__meta">
-          {TEST_LIBRARY_ITEM.categoryId} · {TEST_LIBRARY_ITEM.date} · {TEST_LIBRARY_ITEM.author}
+          {TEST_LIBRARY_ITEM.categoryId} · {TEST_LIBRARY_ITEM.date} ·{' '}
+          {TEST_LIBRARY_ITEM.author}
         </p>
         <p className="app-placeholder-page__stub">
           Library entry — open the{' '}
-          <a href={TEST_LIBRARY_ITEM.fileUrl} target="_blank" rel="noopener noreferrer">
+          <a
+            href={TEST_LIBRARY_ITEM.fileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             document
           </a>
           . Full reader integration can replace this page later.
@@ -76,7 +90,8 @@ export function PlaceholderDetailPage({ section }: { section: SlugContentSection
         <p className="app-placeholder-page__meta">{data.item.description}</p>
       )}
       <p className="app-placeholder-page__stub">
-        Content preview — replace with Walrus-backed or on-chain body when available.
+        Content preview — replace with Walrus-backed or on-chain body when
+        available.
       </p>
     </div>
   );

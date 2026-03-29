@@ -60,17 +60,21 @@ export const locationFeatures: HeroCardItem[] = [
     slug: 'anchor-station-prime',
     kicker: 'Locations',
     title: 'Anchor Station Prime',
-    description: 'Main hub corridors, docking rings, and the public archive annex. Start here for orientation.',
+    description:
+      'Main hub corridors, docking rings, and the public archive annex. Start here for orientation.',
     ctaLabel: 'View location',
-    imageGradient: 'linear-gradient(110deg, #c45c2a 0%, #3d1810 45%, #0d0d12 100%)',
+    imageGradient:
+      'linear-gradient(110deg, #c45c2a 0%, #3d1810 45%, #0d0d12 100%)',
   },
   {
     slug: 'outer-belt-array',
     kicker: 'Locations',
     title: 'Outer belt relay array',
-    description: 'Long-range sensors and the old signal garden. Quiet shifts preferred.',
+    description:
+      'Long-range sensors and the old signal garden. Quiet shifts preferred.',
     ctaLabel: 'View location',
-    imageGradient: 'linear-gradient(110deg, #2a6b8f 0%, #102030 50%, #0a0e14 100%)',
+    imageGradient:
+      'linear-gradient(110deg, #2a6b8f 0%, #102030 50%, #0a0e14 100%)',
   },
 ];
 
@@ -153,7 +157,10 @@ export function listHeroItems(): HeroCardItem[] {
 export function getContentBySlug(
   section: SlugContentSection,
   slug: string,
-): { kind: 'square'; item: SquareCardItem } | { kind: 'hero'; item: HeroCardItem } | undefined {
+):
+  | { kind: 'square'; item: SquareCardItem }
+  | { kind: 'hero'; item: HeroCardItem }
+  | undefined {
   if (section === 'locations') {
     const hero = getHeroBySlug(slug);
     return hero ? { kind: 'hero', item: hero } : undefined;

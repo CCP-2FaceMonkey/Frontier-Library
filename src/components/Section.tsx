@@ -15,11 +15,7 @@ export function Section({
   className = '',
   ...props
 }: SectionProps) {
-  const cn = [
-    'ds-section',
-    centered ? 'ds-section--centered' : '',
-    className,
-  ]
+  const cn = ['ds-section', centered ? 'ds-section--centered' : '', className]
     .filter(Boolean)
     .join(' ');
   return (

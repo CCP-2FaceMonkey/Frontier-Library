@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Card } from './Card';
 import type { LibraryItem } from '../types/library';
+import { Card } from './Card';
 
 export interface LibraryItemCardProps {
   item: LibraryItem;
@@ -34,7 +34,12 @@ export function LibraryItemCard({ item, detailPath }: LibraryItemCardProps) {
               alt=""
               width={32}
               height={32}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 6 }}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: 6,
+              }}
             />
           </a>
         </div>

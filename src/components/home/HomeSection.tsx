@@ -8,13 +8,31 @@ export interface HomeSectionProps {
 }
 
 const chevronLeft = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    aria-hidden
+  >
+    <title>Chevron left</title>
     <polyline points="15 18 9 12 15 6" />
   </svg>
 );
 
 const chevronRight = (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    aria-hidden
+  >
+    <title>Chevron right</title>
     <polyline points="9 18 15 12 9 6" />
   </svg>
 );
@@ -41,7 +59,7 @@ export function HomeSection({ title, children }: HomeSectionProps) {
         <h2 className="home-section__title" id={headingId}>
           {title}
         </h2>
-        <div className="home-section__nav" role="group" aria-label={`${title} scroll`}>
+        <fieldset className="home-section__nav" aria-label={`${title} scroll`}>
           <button
             type="button"
             className="home-section__nav-btn"
@@ -58,7 +76,7 @@ export function HomeSection({ title, children }: HomeSectionProps) {
           >
             {chevronRight}
           </button>
-        </div>
+        </fieldset>
       </div>
       <div className="home-section__body" ref={innerRef}>
         {children}
