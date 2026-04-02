@@ -1,0 +1,419 @@
+/* Dapp discovery — shared tokens (chips + body text legible in light & dark) */
+
+.dapp-discovery-scope,
+.dapp-discovery,
+.dapp-detail-page {
+  --dapp-pill-bg: rgba(255, 255, 255, 0.07);
+  --dapp-pill-border: rgba(255, 255, 255, 0.14);
+  --dapp-pill-fg: #ececf4;
+  --dapp-card-inner-bg: rgba(0, 0, 0, 0.2);
+  --dapp-summary: #b8bcc8;
+  --dapp-meta-label: #9ca3b8;
+  --dapp-meta-value: #e8e9f0;
+}
+
+@media (prefers-color-scheme: light) {
+  .dapp-discovery-scope,
+  .dapp-discovery,
+  .dapp-detail-page {
+    --dapp-pill-bg: rgba(8, 6, 13, 0.06);
+    --dapp-pill-border: rgba(8, 6, 13, 0.12);
+    --dapp-pill-fg: #1c1b22;
+    --dapp-card-inner-bg: rgba(255, 255, 255, 0.65);
+    --dapp-summary: #4b5568;
+    --dapp-meta-label: #5c6578;
+    --dapp-meta-value: #12101a;
+  }
+}
+
+.dapp-discovery__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dapp-discovery__lede {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--dapp-summary);
+}
+
+.dapp-discovery__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  align-items: flex-end;
+}
+
+.dapp-discovery__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: min(100%, 220px);
+}
+
+.dapp-discovery__field--grow {
+  flex: 1 1 260px;
+  min-width: min(100%, 300px);
+}
+
+.dapp-discovery__label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dapp-meta-label);
+}
+
+.dapp-discovery__select,
+.dapp-discovery__input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-h);
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.dapp-discovery__select:focus-visible,
+.dapp-discovery__input:focus-visible {
+  outline: none;
+  border-color: var(--ml-accent-border);
+  box-shadow: 0 0 0 3px var(--ml-accent-bg);
+}
+
+.dapp-discovery__count {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--dapp-meta-label);
+}
+
+.dapp-discovery__empty {
+  margin: 16px 0 0;
+  font-size: 0.875rem;
+  color: var(--dapp-summary);
+}
+
+.dapp-discovery__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 20px;
+}
+
+/* Thumbnail */
+.dapp-thumb {
+  position: relative;
+  overflow: hidden;
+  background: var(--code-bg);
+}
+
+.dapp-thumb--card {
+  aspect-ratio: 16 / 10;
+  border-radius: 12px 12px 0 0;
+}
+
+.dapp-card__thumb-link {
+  display: block;
+  line-height: 0;
+  outline: none;
+}
+
+.dapp-card__thumb-link:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--ml-accent);
+}
+
+.dapp-thumb--hero {
+  flex: 0 0 clamp(120px, 32vw, 200px);
+  aspect-ratio: 1;
+  border-radius: 16px;
+  align-self: flex-start;
+}
+
+.dapp-thumb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dapp-thumb__fallback {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dapp-thumb__initial {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.dapp-thumb--hero .dapp-thumb__initial {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+/* Card */
+.dapp-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  overflow: hidden;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.dapp-card:hover {
+  border-color: var(--ml-accent-border);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.dapp-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 16px 18px;
+  flex: 1;
+  background: var(--dapp-card-inner-bg);
+}
+
+.dapp-card__title {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.28;
+}
+
+.dapp-card__title a {
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.dapp-card__title a:hover {
+  color: var(--ml-accent);
+}
+
+.dapp-card__summary {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--dapp-summary);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Category pills — explicit contrast (fixes light-on-light chips) */
+.dapp-pill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dapp-pill {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  background: var(--dapp-pill-bg);
+  border: 1px solid var(--dapp-pill-border);
+  color: var(--dapp-pill-fg);
+}
+
+.dapp-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.dapp-card__link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ml-accent);
+  text-decoration: none;
+}
+
+.dapp-card__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dapp-card__link--primary {
+  color: var(--text-h);
+}
+
+.dapp-card__link--primary:hover {
+  color: var(--ml-accent);
+}
+
+/* Detail page */
+.dapp-detail-page__hero {
+  display: flex;
+  flex-direction: row;
+  gap: 20px 24px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 540px) {
+  .dapp-detail-page__hero {
+    flex-direction: column;
+  }
+
+  .dapp-detail-page .dapp-thumb--hero {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 16 / 10;
+  }
+}
+
+.dapp-detail-page__hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.dapp-detail-page__title {
+  margin: 0 0 10px;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-h);
+}
+
+.dapp-detail-page__summary {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--dapp-summary);
+}
+
+.dapp-detail-page__meta-block {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.dapp-detail-page__dl {
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.dapp-detail-page__row {
+  margin: 0;
+}
+
+.dapp-detail-page__dt {
+  margin: 0 0 6px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dapp-meta-label);
+}
+
+.dapp-detail-page__dd {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--dapp-meta-value);
+}
+
+.dapp-detail-page__section-title {
+  margin: 24px 0 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-h);
+}
+
+.dapp-detail__list {
+  margin: 8px 0 0;
+  padding-left: 1.15rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--dapp-meta-value);
+}
+
+.dapp-detail__package {
+  word-break: break-all;
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  color: var(--dapp-meta-value);
+}
+
+.dapp-detail-page__notes {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--dapp-summary);
+}
+
+.dapp-detail__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.dapp-detail-page .app-placeholder-page__crumb {
+  margin-bottom: 20px;
+  font-size: 0.8125rem;
+  color: var(--dapp-meta-label);
+}
+
+.dapp-detail-page .app-placeholder-page__crumb a {
+  color: var(--ml-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dapp-detail-page .app-placeholder-page__crumb a:hover {
+  text-decoration: underline;
+}
+
+/* Explore page intro (outside panel) */
+.dapp-discovery-scope__intro {
+  margin: 0;
+  max-width: 42rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--dapp-summary);
+}

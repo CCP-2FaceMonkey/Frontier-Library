@@ -116,9 +116,9 @@ export const historyItems: SquareCardItem[] = [
 ];
 
 export const exploreTeaser: ExploreTeaser = {
-  headline: 'Explore the library dapp',
-  body: 'Connect a wallet to browse on-chain ownership and Walrus-backed documents when live. This band is a preview of the full flow.',
-  ctaLabel: 'Open exploration',
+  headline: 'Discover Frontier dapps',
+  body: 'Browse ecosystem tools with live URLs, repos, Move package IDs, and searchable categories. Wallet features on the explore page are optional demos.',
+  ctaLabel: 'Open dapp discovery',
   to: '/explore',
 };
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { WalletConnect } from '@/components/wallet/WalletConnect';
 import { Button, IconLink, LinkList } from '../components';
 import '../App.css';
@@ -44,6 +44,19 @@ const copyIcon = (
 function NavLinks() {
   return (
     <LinkList>
+      <li>
+        <NavLink
+          to="/explore"
+          className={({ isActive }) =>
+            isActive
+              ? 'app-header__nav-link app-header__nav-link--active'
+              : 'app-header__nav-link'
+          }
+          end={false}
+        >
+          Dapp discovery
+        </NavLink>
+      </li>
       <li>
         <IconLink
           href="https://docs.evefrontier.com/"

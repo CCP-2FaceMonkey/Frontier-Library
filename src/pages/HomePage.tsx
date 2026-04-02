@@ -81,7 +81,7 @@ export function HomePage() {
         </div>
       </HomeSection>
 
-      <HomeSection title="Dapp exploration">
+      <HomeSection title="Dapp discovery">
         <DappExplorationBand teaser={exploreTeaser} />
       </HomeSection>
 

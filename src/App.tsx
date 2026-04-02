@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { AppLayout } from './layouts/AppLayout';
+import { DappDetailPage } from './pages/DappDetailPage';
 import { ExplorePage } from './pages/ExplorePage';
 import { HomePage } from './pages/HomePage';
 import { PlaceholderDetailPage } from './pages/PlaceholderDetailPage';
@@ -12,6 +13,7 @@ export default function App() {
       <Route element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="explore" element={<ExplorePage />} />
+        <Route path="explore/:slug" element={<DappDetailPage />} />
         <Route path="news" element={<PlaceholderListPage section="news" />} />
         <Route
           path="news/:slug"
